@@ -9,12 +9,12 @@ from fastapi.responses import (
 
 from app.routers.routers_config import templates
 
-default_router = APIRouter(prefix="/default", tags=["default"])
+default_router = APIRouter(prefix="", tags=["default"])
 
 @default_router.get("/", response_class=HTMLResponse)
 async def default_route(request: Request):
 
     return templates.TemplateResponse(
-        "index.html",
+        "home.html",
         {"request": request}
     )
