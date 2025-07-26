@@ -420,10 +420,6 @@ body {
         display: none;
     }
     
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
     .footer-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -433,22 +429,6 @@ body {
         flex-direction: column;
         text-align: center;
         gap: 1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-links {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .social-links {
-        justify-content: center;
-    }
-    
-    .nav-buttons,
-    .nav-user {
-        gap: 0.5rem;
     }
 }
 
