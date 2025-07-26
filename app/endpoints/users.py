@@ -17,8 +17,6 @@ from app.validators import (
     LogginUserModel
 )
 
-from fastapi_login.exceptions import InvalidCredentialsException
-
 user_router = APIRouter(prefix="/users", tags=["users"])
 
 # Реєстрація нового юзера

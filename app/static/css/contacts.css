@@ -1,0 +1,281 @@
+/* Contacts Page Styles */
+
+/* Hero Section */
+.contacts-hero {
+    position: relative;
+    padding: clamp(8rem, 15vh, 12rem) 0 clamp(4rem, 8vh, 6rem);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    overflow: hidden;
+}
+
+.contacts-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+    z-index: 1;
+}
+
+.contacts-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contacts-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    line-height: 1.1;
+}
+
+.contacts-hero p {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+    line-height: 1.6;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Main Contacts Section */
+.contacts-main {
+    padding: clamp(4rem, 8vh, 6rem) 0;
+}
+
+.contacts-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Contact Info */
+.contact-info {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: clamp(2rem, 5vw, 3rem);
+    position: relative;
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+}
+
+.contact-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+    z-index: 1;
+}
+
+.contact-info-content {
+    position: relative;
+    z-index: 2;
+}
+
+.contact-info h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 700;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    color: #ffffff;
+    text-align: center;
+}
+
+.contact-info p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.6;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    text-align: center;
+}
+
+.contact-methods {
+    list-style: none;
+}
+
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 1.25rem);
+    padding: clamp(1rem, 3vw, 1.25rem);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: clamp(1rem, 3vw, 1.25rem);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.contact-method:hover {
+    background: rgba(102, 126, 234, 0.1);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateX(5px);
+}
+
+.contact-icon {
+    width: clamp(40px, 8vw, 48px);
+    height: clamp(40px, 8vw, 48px);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.contact-icon svg {
+    width: clamp(20px, 4vw, 24px);
+    height: clamp(20px, 4vw, 24px);
+    color: #ffffff;
+}
+
+.contact-details h3 {
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: #ffffff;
+}
+
+.contact-details p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.contact-details a {
+    color: #667eea;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-details a:hover {
+    color: #764ba2;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: clamp(4rem, 8vh, 6rem) 0;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: 700;
+    margin-bottom: clamp(1rem, 3vw, 1.5rem);
+    color: #ffffff;
+}
+
+.section-header p {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: clamp(1rem, 3vw, 1.25rem);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.faq-question {
+    width: 100%;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+    color: #667eea;
+}
+
+.faq-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+}
+
+.faq-answer-content {
+    padding: 0 clamp(1rem, 3vw, 1.5rem) clamp(1rem, 3vw, 1.5rem);
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-method {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .contact-details {
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info {
+        padding: 1.5rem;
+    }
+    
+    .contacts-hero {
+        padding: 6rem 0 3rem;
+    }
+}

@@ -1,0 +1,166 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/contacts.css">{% endblock style_link %}
+
+{% block title %}Контакти - Prompty{% endblock %}
+
+{% block description %}Зв'яжіться з командою Prompty. Телеграм, email та інші способи зв'язку для питань щодо платформи навчання промпт-інжинірингу.{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="contacts-hero" role="banner">
+        <div class="container">
+            <div class="contacts-hero-content">
+                <h1>
+                    Зв'яжіться з
+                    <span class="gradient-text">нашою командою</span>
+                </h1>
+                <p>
+                    Маєте питання про Prompty? Потрібна допомога з навчанням? 
+                    Наша команда завжди готова допомогти вам стати експертом з промпт-інжинірингу.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contacts Section -->
+    <section class="contacts-main">
+        <div class="container">
+            <div class="contacts-container">
+                <!-- Contact Information -->
+                <div class="contact-info">
+                    <div class="contact-info-content">
+                        <h2>Способи зв'язку</h2>
+                        <p>Оберіть найзручніший для вас спосіб зв'язку. Ми відповідаємо протягом 24 годин.</p>
+                        
+                        <ul class="contact-methods">
+                            <li class="contact-method">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10h5v-2h-5c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8v1.43c0 .79-.71 1.57-1.5 1.57s-1.5-.78-1.5-1.57V12c0-2.76-2.24-5-5-5s-5 2.24-5 5 2.24 5 5 5c1.38 0 2.64-.56 3.54-1.47.65.89 1.77 1.47 2.96 1.47 1.97 0 3.5-1.53 3.5-3.5V12c0-5.52-4.48-10-10-10zm0 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Email</h3>
+                                    <p><a href="mailto:maxnozhkin2006@gmail.com">maxnozhkin2006@gmail.com</a></p>
+                                    <p>Для загальних питань та підтримки</p>
+                                </div>
+                            </li>
+                            
+                            <li class="contact-method">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Telegram</h3>
+                                    <p><a href="https://t.me/D1Ther" target="_blank">@D1Ther</a></p>
+                                    <p>Швидка підтримка в месенджері</p>
+                                </div>
+                            </li>
+                            
+                            <li class="contact-method">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Телефон</h3>
+                                    <p><a href="tel:+380123456789">+38 (012) 345-67-89</a></p>
+                                    <p>Дзвінки в робочі дні 9:00-18:00</p>
+                                </div>
+                            </li>
+                            
+                            <li class="contact-method">
+                                <div class="contact-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                    </svg>
+                                </div>
+                                <div class="contact-details">
+                                    <h3>Офіс</h3>
+                                    <p>м. Київ, вул. Хрещатик, 1</p>
+                                    <p>БЦ "TechHub", 15 поверх</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-container">
+                <header class="section-header">
+                    <h2>Часті питання</h2>
+                    <p>Відповіді на найпопулярніші запитання наших користувачів</p>
+                </header>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span>Як почати навчання на платформі?</span>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Для початку навчання зареєструйтесь на платформі, оберіть відповідний навчальний трек та розпочніть з перших уроків. Всі матеріали структуровані від простого до складного.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span>Чи потрібен досвід роботи з AI?</span>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Ні, попередній досвід не потрібен. Ми пропонуємо курси для всіх рівнів - від початківців до експертів. Почніть з базового треку і поступово переходьте до складніших тем.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span>Скільки часу займає навчання?</span>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Це залежить від обраного треку та вашого темпу. Базовий курс займає 4-6 тижнів при навчанні 2-3 години на тиждень. Ви можете навчатися у власному темпі.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span>Чи видається сертифікат після завершення?</span>
+                            <svg class="faq-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M7 10l5 5 5-5z"/>
+                            </svg>
+                        </button>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Так, після успішного завершення кожного треку ви отримуєте цифровий сертифікат, який підтверджує ваші навички в промпт-інжинірингу.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/contacts.js"></script>
+{% endblock %}

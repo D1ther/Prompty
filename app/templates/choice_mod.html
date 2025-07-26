@@ -1,0 +1,180 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/choice_mod.css">{% endblock style_link %}
+
+{% block title %}Оберіть режим - Prompty AI{% endblock %}
+
+{% block description %}Оберіть режим роботи з промптами: навчання, творчість або кодування. Персоналізований досвід для кожної сфери застосування.{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="choice-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Оберіть свій 
+                    <span class="gradient-text">режим роботи</span>
+                </h1>
+                <p class="hero-description">
+                    Кожен режим налаштований для специфічних потреб та завдань. 
+                    Виберіть той, що найкраще відповідає вашим цілям.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modes Selection -->
+    <section class="modes-section">
+        <div class="container">
+            <div class="modes-grid">
+                <!-- Learning Mode -->
+                <article class="mode-card learning" tabindex="0">
+                    <div class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
+                        </svg>
+                    </div>
+                    <div class="mode-content">
+                        <h3>Навчання</h3>
+                        <p class="mode-description">
+                            Освітні завдання, навчальні матеріали та академічні дослідження. 
+                            Ідеально для студентів та викладачів.
+                        </p>
+                        <ul class="mode-features">
+                            <li>Пояснення складних концепцій</li>
+                            <li>Створення навчальних планів</li>
+                            <li>Генерація тестів та завдань</li>
+                            <li>Дослідження та аналіз</li>
+                        </ul>
+                        <button class="mode-btn learning-btn" data-mode="learning">
+                            <span>Обрати навчання</span>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mode-badge">Популярний</div>
+                </article>
+
+                <!-- Creative Mode -->
+                <article class="mode-card creative" tabindex="0">
+                    <div class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l.09 2.09L14.18 4l2.09.09L16.36 6.27l1.64 1.64L17.91 10l.09 2.09L16 12.09 13.91 12l-.09 2.09L11.64 13.73 10 15.36 8.27 13.73 6.09 12l-.09-2.09L4 9.82l2.09-.09L6.18 7.64 7.82 6l2.09-.09L10 4l2-.09L12 2z"/>
+                        </svg>
+                    </div>
+                    <div class="mode-content">
+                        <h3>Творчість</h3>
+                        <p class="mode-description">
+                            Креативні проекти, художні ідеї та контент-маркетинг. 
+                            Для письменників, дизайнерів та креаторів.
+                        </p>
+                        <ul class="mode-features">
+                            <li>Генерація ідей та концепцій</li>
+                            <li>Написання текстів та сценаріїв</li>
+                            <li>Створення візуального контенту</li>
+                            <li>Брендинг та маркетинг</li>
+                        </ul>
+                        <button class="mode-btn creative-btn" data-mode="creative">
+                            <span>Обрати творчість</span>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Coding Mode -->
+                <article class="mode-card coding" tabindex="0">
+                    <div class="mode-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                        </svg>
+                    </div>
+                    <div class="mode-content">
+                        <h3>Кодування</h3>
+                        <p class="mode-description">
+                            Програмування, розробка ПЗ та технічні завдання. 
+                            Для розробників та IT-спеціалістів.
+                        </p>
+                        <ul class="mode-features">
+                            <li>Генерація та рефакторинг коду</li>
+                            <li>Налагодження та оптимізація</li>
+                            <li>Документація та коментарі</li>
+                            <li>Архітектурні рішення</li>
+                        </ul>
+                        <button class="mode-btn coding-btn" data-mode="coding">
+                            <span>Обрати кодування</span>
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mode-badge pro">Pro</div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Comparison -->
+    <section class="comparison-section">
+        <div class="container">
+            <header class="section-header">
+                <h2>Порівняння можливостей</h2>
+                <p>Детальний огляд того, що пропонує кожен режим</p>
+            </header>
+            
+            <div class="comparison-table">
+                <div class="table-header">
+                    <div class="feature-col">Можливості</div>
+                    <div class="mode-col learning">Навчання</div>
+                    <div class="mode-col creative">Творчість</div>
+                    <div class="mode-col coding">Кодування</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="feature-name">Готові шаблони</div>
+                    <div class="feature-check">✓</div>
+                    <div class="feature-check">✓</div>
+                    <div class="feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="feature-name">AI-асистент</div>
+                    <div class="feature-check">✓</div>
+                    <div class="feature-check">✓</div>
+                    <div class="feature-check">✓</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="feature-name">Спеціалізовані інструменти</div>
+                    <div class="feature-check basic">Базові</div>
+                    <div class="feature-check advanced">Розширені</div>
+                    <div class="feature-check pro">Професійні</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Не можете визначитись?</h2>
+                <p>Спробуйте безкоштовну пробну версію кожного режиму</p>
+                <div class="cta-buttons">
+                    <button class="btn-secondary-large" id="try-all">
+                        Спробувати всі режими
+                    </button>
+                    <button class="btn-primary-large" id="get-recommendation">
+                        Отримати рекомендацію
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="/static/js/choice_mod.js"></script>
+{% endblock %}
