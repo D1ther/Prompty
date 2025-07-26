@@ -169,27 +169,27 @@
                 case 0:
                 case 1:
                     strengthFill.style.width = '20%';
-                    strengthFill.style.backgroundColor = '#ef4444';
+                    strengthFill.style.backgroundColor = '#ff4757';
                     feedback = 'Дуже слабкий';
                     break;
                 case 2:
                     strengthFill.style.width = '40%';
-                    strengthFill.style.backgroundColor = '#f97316';
+                    strengthFill.style.backgroundColor = '#ff6b6b';
                     feedback = 'Слабкий';
                     break;
                 case 3:
                     strengthFill.style.width = '60%';
-                    strengthFill.style.backgroundColor = '#eab308';
+                    strengthFill.style.backgroundColor = '#ffa502';
                     feedback = 'Середній';
                     break;
                 case 4:
                     strengthFill.style.width = '80%';
-                    strengthFill.style.backgroundColor = '#22c55e';
+                    strengthFill.style.backgroundColor = '#2ed573';
                     feedback = 'Сильний';
                     break;
                 case 5:
                     strengthFill.style.width = '100%';
-                    strengthFill.style.backgroundColor = '#16a34a';
+                    strengthFill.style.backgroundColor = '#2ed573';
                     feedback = 'Дуже сильний';
                     break;
             }
@@ -198,23 +198,63 @@
             return strength;
         }
 
+        // Функція для показу помилок у формі
+        function showError(message) {
+            // Видаляємо попередні повідомлення про помилки
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            // Створюємо новий елемент помилки
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                ${message}
+            `;
+            errorDiv.style.cssText = `
+                background: #ffe6e6;
+                color: #d32f2f;
+                padding: 12px 16px;
+                border-radius: 8px;
+                margin-bottom: 16px;
+                border-left: 4px solid #d32f2f;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            `;
+
+            // Вставляємо повідомлення перед кнопкою submit
+            const submitBtn = document.querySelector('.btn-primary-full');
+            submitBtn.parentNode.insertBefore(errorDiv, submitBtn);
+
+            // Автоматично прибираємо повідомлення через 5 секунд
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.remove();
+                }
+            }, 5000);
+        }
+
         document.getElementById('password').addEventListener('input', function(e) {
             checkPasswordStrength(e.target.value);
         });
 
-        document.getElementById('registerForm').addEventListener('submit', function(e) {
+        document.getElementById('registerForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
             
             if (password !== confirmPassword) {
-                alert('Паролі не співпадають!');
+                showError('Паролі не співпадають!');
                 return;
             }
             
             if (checkPasswordStrength(password) < 3) {
-                alert('Пароль занадто слабкий. Використовуйте принаймні 8 символів з літерами, цифрами та спеціальними символами.');
+                showError('Пароль занадто слабкий. Використовуйте принаймні 8 символів з літерами, цифрами та спеціальними символами.');
                 return;
             }
             
@@ -227,13 +267,39 @@
             btnLoader.style.display = 'flex';
             submitBtn.disabled = true;
             
-            // Simulate API call
-            setTimeout(() => {
+            try {
+                const formData = new FormData(this);
+                const data = {
+                    username: formData.get('firstName'),
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                };
+                
+                const response = await fetch('/users/register_user', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // Миттєве перенаправлення без повідомлень та затримок
+                    window.location.href = '/';
+                    
+                } else {
+                    const error = await response.json();
+                    showError(`Помилка: ${error.detail}`);
+                }
+            } catch (error) {
+                console.error('Помилка реєстрації:', error);
+                showError('Помилка з\'єднання з сервером');
+            } finally {
+                // Reset loading state
                 btnText.style.display = 'block';
                 btnLoader.style.display = 'none';
                 submitBtn.disabled = false;
-                alert('Акаунт успішно створено! (Демо)');
-            }, 2000);
+            }
         });
     </script>
 {% endblock content %}

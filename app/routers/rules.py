@@ -7,7 +7,7 @@ from fastapi.responses import HTMLResponse
 
 from app.routers.routers_config import templates
 
-rules_router = APIRouter(prefix="/rules", tags=["rules"])
+rules_router = APIRouter(prefix="/rules", tags=["rules", "Templates"])
 
 @rules_router.get("/of_use", response_class=HTMLResponse)
 async def rules_of_use(request: Request):

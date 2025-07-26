@@ -112,8 +112,49 @@
             }
         }
 
-        document.getElementById('loginForm').addEventListener('submit', function(e) {
+        // Функція для показу помилок у формі
+        function showError(message) {
+            // Видаляємо попередні повідомлення про помилки
+            const existingError = document.querySelector('.error-message');
+            if (existingError) {
+                existingError.remove();
+            }
+
+            // Створюємо новий елемент помилки
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.innerHTML = `
+                <i class="fas fa-exclamation-triangle"></i>
+                ${message}
+            `;
+            errorDiv.style.cssText = `
+                background: #ffe6e6;
+                color: #d32f2f;
+                padding: 12px 16px;
+                border-radius: 8px;
+                margin-bottom: 16px;
+                border-left: 4px solid #d32f2f;
+                font-size: 14px;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            `;
+
+            // Вставляємо повідомлення перед кнопкою submit
+            const submitBtn = document.querySelector('.btn-primary-full');
+            submitBtn.parentNode.insertBefore(errorDiv, submitBtn);
+
+            // Автоматично прибираємо повідомлення через 5 секунд
+            setTimeout(() => {
+                if (errorDiv.parentNode) {
+                    errorDiv.remove();
+                }
+            }, 5000);
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async function(e) {
             e.preventDefault();
+            
             const submitBtn = this.querySelector('.btn-primary-full');
             const btnText = submitBtn.querySelector('.btn-text');
             const btnLoader = submitBtn.querySelector('.btn-loader');
@@ -123,13 +164,38 @@
             btnLoader.style.display = 'flex';
             submitBtn.disabled = true;
             
-            // Simulate API call
-            setTimeout(() => {
+            try {
+                const formData = new FormData(this);
+                const data = {
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                };
+                
+                const response = await fetch('/users/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                if (response.ok) {
+                    // Миттєве перенаправлення без повідомлень та затримок
+                    window.location.href = '/';
+                    
+                } else {
+                    const error = await response.json();
+                    showError(`Помилка: ${error.detail}`);
+                }
+            } catch (error) {
+                console.error('Помилка входу:', error);
+                showError('Помилка з\'єднання з сервером');
+            } finally {
+                // Reset loading state
                 btnText.style.display = 'block';
                 btnLoader.style.display = 'none';
                 submitBtn.disabled = false;
-                alert('Успішний вхід! (Демо)');
-            }, 2000);
+            }
         });
     </script>
 {% endblock content %}
