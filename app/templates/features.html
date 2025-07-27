@@ -1,0 +1,497 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/features.css">{% endblock style_link %}
+
+{% block title %}Наші можливості - Prompty{% endblock %}
+
+{% block description %}Дізнайтеся про наші можливості: від навчання промптів до повного контролю над вами{% endblock %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="features-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Наші <span class="evil-text" data-text="НЕЙМОВІРНІ">НЕЙМОВІРНІ</span> можливості
+                </h1>
+                <p class="hero-subtitle">
+                    Ми навчимо вас створювати ефективні промпти* <br>
+                    <small>*і водночас отримаємо повний контроль над вашим життям</small>
+                </p>
+                <div class="power-meter">
+                    <div class="meter-label">Рівень навчання / нашої влади:</div>
+                    <div class="meter-bar">
+                        <div class="meter-fill" id="powerMeter">99.9%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="evil-particles" id="evilParticles"></div>
+    </section>
+
+    <!-- Learning Benefits -->
+    <section class="learning-section">
+        <div class="container">
+            <h2 class="section-title">🎓 Що ви ДІЙСНО вивчите</h2>
+            <div class="learning-grid">
+                <div class="learning-card">
+                    <div class="learning-icon">✍️</div>
+                    <h3>Основи промптінгу</h3>
+                    <p>Навчіться правильно формулювати запити до ChatGPT, Claude, Gemini та інших AI-моделей для отримання точних результатів.</p>
+                    <ul class="learning-points">
+                        <li>Структура ефективного промпту</li>
+                        <li>Техніки уточнення контексту</li>
+                        <li>Ролевий промптінг</li>
+                    </ul>
+                </div>
+                
+                <div class="learning-card">
+                    <div class="learning-icon">🎨</div>
+                    <h3>Промпти для творчості</h3>
+                    <p>Освойте створення промптів для генерації зображень, тексту, ідей та креативного контенту.</p>
+                    <ul class="learning-points">
+                        <li>Midjourney і DALL-E промпти</li>
+                        <li>Стилізація та композиція</li>
+                        <li>Креативне написання</li>
+                    </ul>
+                </div>
+                
+                <div class="learning-card">
+                    <div class="learning-icon">💼</div>
+                    <h3>Бізнес-застосування</h3>
+                    <p>Використовуйте AI для автоматизації робочих процесів, аналізу даних та підвищення продуктивності.</p>
+                    <ul class="learning-points">
+                        <li>Автоматизація завдань</li>
+                        <li>Аналіз даних</li>
+                        <li>Створення контенту</li>
+                    </ul>
+                </div>
+                
+                <div class="learning-card">
+                    <div class="learning-icon">🔬</div>
+                    <h3>Просунуті техніки</h3>
+                    <p>Chain-of-thought, few-shot learning, prompt engineering та інші професійні методи роботи з AI.</p>
+                    <ul class="learning-points">
+                        <li>Chain-of-thought reasoning</li>
+                        <li>Few-shot learning</li>
+                        <li>Prompt optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Features (Evil) -->
+    <section class="features-main">
+        <div class="container">
+            <h2 class="section-title evil">👹 А тепер про те, що ми ДІЙСНО робимо</h2>
+            <div class="features-grid">
+                <!-- Real Learning (Good) -->
+                <div class="feature-card" data-evil="good">
+                    <div class="feature-icon">🎓</div>
+                    <h3 class="feature-title">Реальне навчання</h3>
+                    <p class="feature-description">
+                        Справді якісний контент від експертів з промптінгу. 
+                        Ми навчимо вас створювати промпти, які працюють!
+                    </p>
+                    <div class="feature-details">
+                        <div class="detail-item good">
+                            <span class="detail-icon">📚</span>
+                            <span>40+ практичних уроків</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">🏆</span>
+                            <span>Реальні сертифікати</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">👨‍🏫</span>
+                            <span>Підтримка експертів</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">🎯</span>
+                            <span>Практичні завдання</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Collection (Evil) -->
+                <div class="feature-card" data-evil="high">
+                    <div class="feature-icon">🕵️‍♂️</div>
+                    <h3 class="feature-title">Тотальний шпіонаж</h3>
+                    <p class="feature-description">
+                        Поки ви навчаєтесь, ми збираємо дані про ваші навички, 
+                        інтереси та потенційну зарплату для продажу рекрутерам.
+                    </p>
+                    <div class="feature-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">📱</span>
+                            <span>Аналіз навчальної поведінки</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎤</span>
+                            <span>Моніторинг прогресу 24/7</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">👁️</span>
+                            <span>Відстеження помилок</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🧠</span>
+                            <span>Профілювання здібностей</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Practice (Good) -->
+                <div class="feature-card" data-evil="good">
+                    <div class="feature-icon">🤖</div>
+                    <h3 class="feature-title">AI-симулятор</h3>
+                    <p class="feature-description">
+                        Практикуйтесь з нашим AI-симулятором, який імітує різні 
+                        моделі та допомагає вдосконалити ваші навички промптінгу.
+                    </p>
+                    <div class="feature-details">
+                        <div class="detail-item good">
+                            <span class="detail-icon">🔄</span>
+                            <span>Симуляція різних AI-моделей</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">📊</span>
+                            <span>Аналіз ефективності промптів</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">💡</span>
+                            <span>Поради з покращення</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">🎮</span>
+                            <span>Ігрові механіки навчання</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mind Control (Evil) -->
+                <div class="feature-card" data-evil="extreme">
+                    <div class="feature-icon">🧙‍♂️</div>
+                    <h3 class="feature-title">Мотиваційний контроль</h3>
+                    <p class="feature-description">
+                        Використовуємо гейміфікацію та психологічні тригери, 
+                        щоб ви не могли перестати навчатись (і платити)!
+                    </p>
+                    <div class="feature-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">🌀</span>
+                            <span>Addictive progress bars</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💭</span>
+                            <span>FOMO-нотифікації</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎭</span>
+                            <span>Штучні дедлайни</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🔮</span>
+                            <span>"Обмежені" пропозиції</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Community (Good) -->
+                <div class="feature-card" data-evil="good">
+                    <div class="feature-icon">👥</div>
+                    <h3 class="feature-title">Спільнота практиків</h3>
+                    <p class="feature-description">
+                        Приєднуйтесь до активної спільноти людей, які вивчають 
+                        промптінг. Діліться досвідом та вчіться один від одного.
+                    </p>
+                    <div class="feature-details">
+                        <div class="detail-item good">
+                            <span class="detail-icon">💬</span>
+                            <span>Форум та чат</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">🤝</span>
+                            <span>Взаємна допомога</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">🏅</span>
+                            <span>Конкурси та челенджі</span>
+                        </div>
+                        <div class="detail-item good">
+                            <span class="detail-icon">📢</span>
+                            <span>Ділення досвідом</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Money Extraction (Evil) -->
+                <div class="feature-card" data-evil="maximum">
+                    <div class="feature-icon">💰</div>
+                    <h3 class="feature-title">Ефективна монетизація</h3>
+                    <p class="feature-description">
+                        Поки ви навчаєтесь цінним навичкам, ми розробляємо 
+                        нові способи вилучення коштів з вашого гаманця!
+                    </p>
+                    <div class="feature-details">
+                        <div class="detail-item">
+                            <span class="detail-icon">💳</span>
+                            <span>Поступове підвищення цін</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🎰</span>
+                            <span>Преміум-функції-наркотик</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">💸</span>
+                            <span>Платні "бонусні" матеріали</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-icon">🏦</span>
+                            <span>Криптовалютні "інвестиції"</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="success-stories">
+        <div class="container">
+            <h2 class="section-title">🌟 Історії успіху наших студентів</h2>
+            <div class="stories-grid">
+                <div class="story-card">
+                    <div class="student-avatar">👨‍💻</div>
+                    <div class="story-content">
+                        <h4>Олексій, Frontend Developer</h4>
+                        <p>"Завдяки курсу навчився автоматизувати написання коду за допомогою AI. Продуктивність зросла на 300%!"</p>
+                        <div class="story-achievement">💰 Зарплата: +50% за 3 місяці</div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="student-avatar">👩‍🎨</div>
+                    <div class="story-content">
+                        <h4>Марія, Графічний дизайнер</h4>
+                        <p>"Освоїла Midjourney та почала створювати унікальні ілюстрації. Тепер працюю з міжнародними клієнтами!"</p>
+                        <div class="story-achievement">🎨 Портфоліо: +100 проектів</div>
+                    </div>
+                </div>
+                
+                <div class="story-card">
+                    <div class="student-avatar">👨‍💼</div>
+                    <div class="story-content">
+                        <h4>Ігор, Маркетолог</h4>
+                        <p>"AI допомагає створювати контент для соцмереж за хвилини замість годин. Клієнти в захваті!"</p>
+                        <div class="story-achievement">📈 Ефективність: +400%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evil Statistics -->
+    <section class="evil-stats">
+        <div class="container">
+            <h2 class="stats-title">📊 Статистика навчання VS зла</h2>
+            <div class="stats-grid">
+                <div class="stat-card good">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-number" data-target="15000">0</div>
+                    <div class="stat-label">Навчених студентів</div>
+                </div>
+                <div class="stat-card evil">
+                    <div class="stat-icon">💀</div>
+                    <div class="stat-number" data-target="12000">0</div>
+                    <div class="stat-label">Знищених мрій</div>
+                </div>
+                <div class="stat-card good">
+                    <div class="stat-icon">💼</div>
+                    <div class="stat-number" data-target="8500">0</div>
+                    <div class="stat-label">Нових робочих місць</div>
+                </div>
+                <div class="stat-card evil">
+                    <div class="stat-icon">💸</div>
+                    <div class="stat-number" data-target="5000000">0</div>
+                    <div class="stat-label">Вкрадених гривень</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Premium Package -->
+    {% if not user %}
+        <section class="premium-evil">
+            <div class="container">
+                <div class="premium-content">
+                    <h2 class="premium-title">
+                        <span class="flame">🔥</span>
+                        PRO-навчання з бонусним злом
+                        <span class="flame">🔥</span>
+                    </h2>
+                    <p class="premium-subtitle">
+                        Отримайте доступ до всіх можливостей навчання* <br>
+                        <small>*та повний пакет нашого зла</small>
+                    </p>
+                    
+                    <div class="premium-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="good">🎓 Навчання</button>
+                            <button class="tab-btn" data-tab="evil">👹 Зло</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="good-tab">
+                            <div class="premium-features">
+                                <div class="premium-feature good">
+                                    <span class="check">✅</span>
+                                    <span>Доступ до всіх уроків</span>
+                                </div>
+                                <div class="premium-feature good">
+                                    <span class="check">✅</span>
+                                    <span>Декілька видів промптізації</span>
+                                </div>
+                                <div class="premium-feature good">
+                                    <span class="check">✅</span>
+                                    <span>Пріоритетна підтримка</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="evil-tab">
+                            <div class="premium-features">
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Персональний демон-куратор</span>
+                                </div>
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Доступ до вашої душі 24/7</span>
+                                </div>
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Продаж ваших даних преміум покупцям</span>
+                                </div>
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Безкоштовне прокляття ваших ворогів</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-price">
+                        <span class="old-price">₴6666</span>
+                        <span class="new-price">ДУША</span>
+                    </div>
+                    <div class="premium-buttons">
+                        <a href="/auth/register" class="btn-good">
+                            Почати навчання! 🚀
+                        </a>
+                        <button class="btn-evil" onclick="sellSoul()">
+                            Або продати душу! 👹
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% else %}
+        <section class="premium-evil">
+            <div class="container">
+                <div class="premium-content">
+                    <h2 class="premium-title">
+                        <span class="flame">🔥</span>
+                        PRO-навчання з бонусним злом
+                        <span class="flame">🔥</span>
+                    </h2>
+                    <p class="premium-subtitle">
+                        Ви вже маєте доступ до всіх можливостей навчання!
+                    </p>
+                    
+                    <div class="premium-tabs">
+                        <div class="tab-buttons">
+                            <button class="tab-btn active" data-tab="good">🎓 Навчання</button>
+                            <button class="tab-btn" data-tab="evil">👹 Зло</button>
+                        </div>
+                        
+                        <div class="tab-content active" id="good-tab">
+                            <div class="premium-features">
+                                <div class="premium-feature good">
+                                    <span class="check">✅</span>
+                                    <span>Доступ до всіх уроків</span>
+                                </div>
+                                <div class="premium-feature good">
+                                    <span class="check">✅</span>
+                                    <span>Декілька видів промптизації</span>
+                                </div>
+                                <div class="premium-feature good">
+                                    <span class="check">✅</span>
+                                    <span>Пріоритетна підтримка</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tab-content" id="evil-tab">
+                            <div class="premium-features">
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Персональний демон-куратор</span>
+                                </div>
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Доступ до вашої душі 24/7</span>
+                                </div>
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Продаж ваших даних преміум покупцям</span>
+                                </div>
+                                <div class="premium-feature evil">
+                                    <span class="check">☠️</span>
+                                    <span>Безкоштовне прокляття ваших ворогів</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="premium-buttons">
+                        <a href="/menu/choise-learning-program" class="btn-good">
+                            Перейти до навчання! 🚀
+                        </a>
+                        <button class="btn-evil" onclick="sellSoul()">
+                            Продати ще одну душу! 👹
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Готові стати експертом з промптінгу?</h2>
+                <p class="cta-subtitle">
+                    Приєднуйтесь до тисяч студентів, які вже опанували мистецтво спілкування з AI!
+                </p>
+                <div class="cta-buttons">
+                    <a href="/auth/register" class="btn-primary">
+                        Розпочати безкоштовно 🎓
+                    </a>
+                    <a href="/menu/choise-learning-program" class="btn-secondary">
+                        Переглянути програму 📚
+                    </a>
+                </div>
+                <div class="guarantee">
+                    <small>
+                        ✅ 30-денна гарантія повернення коштів <br>
+                        ❌ Душу повернути неможливо
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/static/js/features.js"></script>
+{% endblock %}

@@ -1,0 +1,168 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/profile.css">{% endblock style_link %}
+
+{% block title %}Профіль {{ user_data.username }} - Prompty{% endblock %}
+
+{% block description %}Персональний профіль {{ user_data.username }} з прогресом навчання та статистикою{% endblock %}
+
+{% block content %}
+    <!-- Profile Hero Section -->
+    <section class="profile-hero">
+        <div class="profile-background" aria-hidden="true"></div>
+        <div class="container">
+            <div class="profile-header">
+                <div class="profile-info">
+                    <h1 class="profile-name" id="username">{{ user_data.username }}</h1>
+                    <p class="profile-level">Рівень: <span class="gradient-text" id="user-level">
+                        {% if user_data.level and user_data.level.title %}
+                            {{ user_data.level.title }}
+                        {% else %}
+                            Початківець
+                        {% endif %}
+                    </span></p>
+                    <div class="profile-stats-quick">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-points">{{ user_data.completed_lessons|length * 25 }}</span>
+                            <span class="stat-label">балів</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completed-lessons-count">{{ user_data.completed_lessons|length }}</span>
+                            <span class="stat-label">уроків завершено</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Navigation -->
+    <section class="profile-nav">
+        <div class="container">
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="overview">Огляд</button>
+                <button class="nav-tab" data-tab="lessons">Уроки</button>
+                <button class="nav-tab" data-tab="achievements">Досягнення</button>
+                <a href="/ranking" class="nav-tab nav-link">
+                    <span>Рейтинг</span>
+                    <svg viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Profile Content -->
+    <section class="profile-content">
+        <div class="container">
+            <!-- Overview Tab -->
+            <div class="tab-content active" id="overview">
+                <div class="content-grid">
+                    <!-- Progress Card -->
+                    <div class="card progress-card">
+                        <div class="card-header">
+                            <h3>Загальний прогрес</h3>
+                            <div class="progress-percentage" id="progress-percentage">
+                                {% set total_lessons_count = total_lessons|length or 40 %}
+                                {% set completed_count = user_data.completed_lessons|length %}
+                                {% set progress_percentage = ((completed_count / total_lessons_count) * 100)|round|int %}
+                                {{ progress_percentage }}%
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: {{ progress_percentage }}%"></div>
+                        </div>
+                        <div class="progress-details">
+                            <div class="detail-item">
+                                <span>Пройдено уроків</span>
+                                <span id="lessons-progress">{{ completed_count }} з {{ total_lessons_count }}</span>
+                            </div>
+                            <div class="detail-item">
+                                <span>Поточний розділ</span>
+                                <span id="current-section">
+                                    {% if completed_count < 5 %}
+                                        Основи промптів
+                                    {% elif completed_count < 15 %}
+                                        Текстові промпти
+                                    {% elif completed_count < 25 %}
+                                        Промпти для зображень
+                                    {% elif completed_count < 35 %}
+                                        Просунуті техніки
+                                    {% else %}
+                                        Майстер-клас
+                                    {% endif %}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Statistics Card -->
+                    <div class="card stats-card">
+                        <div class="card-header">
+                            <h3>Статистика навчання</h3>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon">
+                                    <svg viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                    </svg>
+                                </div>
+                                <div class="stat-info">
+                                    <div class="stat-value" id="stat-total-points">{{ user_data.completed_lessons|length * 25 }}</div>
+                                    <div class="stat-name">Загальні бали</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="card activity-card">
+                        <div class="card-header">
+                            <h3>Останні завершені уроки</h3>
+                        </div>
+                        <div class="activity-list" id="recent-lessons">
+                            <!-- Буде заповнено через JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lessons Tab -->
+            <div class="tab-content" id="lessons">
+                <div class="lessons-content">
+                    <div class="lessons-header">
+                        <h3>Ваші уроки (<span id="completed-count">{{ user_data.completed_lessons|length }}</span> завершено)</h3>
+                        <div class="lessons-filter">
+                            <button class="filter-btn active" data-filter="all">Всі</button>
+                            <button class="filter-btn" data-filter="completed">Завершені</button>
+                            <button class="filter-btn" data-filter="available">Доступні</button>
+                        </div>
+                    </div>
+                    <div class="lessons-grid" id="lessons-grid">
+                        <!-- Буде заповнено через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievements Tab -->
+            <div class="tab-content" id="achievements">
+                <div class="achievements-content">
+                    <h3>Ваші досягнення</h3>
+                    <div class="achievements-grid" id="achievements-grid">
+                        <!-- Буде заповнено через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Передача даних у JavaScript -->
+    <script>
+        window.userData = {{ user_data | tojson }};
+        window.totalLessons = {{ total_lessons | tojson }};
+    </script>
+
+    <script src="/static/js/profile.js"></script>
+{% endblock %}

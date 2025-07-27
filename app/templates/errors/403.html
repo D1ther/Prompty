@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/error.css">{% endblock style_link %}
+
+{% block title %}Доступ заборонено - 403 | Prompty{% endblock %}
+
+{% block description %}Доступ до цієї сторінки заборонено. Можливо, вам потрібно увійти в систему або у вас немає необхідних прав доступу.{% endblock %}
+
+{% block content %}
+    <main class="error-page" role="main">
+        <div class="error-background" aria-hidden="true"></div>
+        
+        <!-- Floating decorative elements -->
+        <div class="floating-elements" aria-hidden="true">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="error-container">
+            <div class="error-number error-403" aria-label="Помилка 403" role="img">403</div>
+            
+            <h1 class="error-title">Доступ заборонено</h1>
+            
+            <p class="error-description">
+                Схоже, ваші права доступу не дозволяють переглядати цю сторінку. 
+                Можливо, вам потрібно увійти в систему або звернутися до адміністратора для отримання доступу.
+            </p>
+            
+            <div class="error-actions">
+                <a href="/auth/login" class="btn-error-primary" aria-label="Увійти в систему">
+                    <svg class="error-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M3 3a1 1 0 011 1v12a1 1 0 11-2 0V4a1 1 0 011-1zm7.707 3.293a1 1 0 010 1.414L9.414 9H17a1 1 0 110 2H9.414l1.293 1.293a1 1 0 01-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Увійти</span>
+                </a>
+                
+                <a href="/" class="btn-error-secondary" aria-label="Повернутися на головну сторінку">
+                    <svg class="error-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+                    <span>На головну</span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/error.js"></script>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/error.css">{% endblock style_link %}
+
+{% block title %}Сторінку не знайдено - 404 | Prompty{% endblock %}
+
+{% block description %}Упс! Сторінку, яку ви шукаете, не існує. Поверніться на головну сторінку та продовжуйте навчання з Prompty.{% endblock %}
+
+{% block content %}
+    <main class="error-page" role="main">
+        <div class="error-background" aria-hidden="true"></div>
+        
+        <!-- Floating decorative elements -->
+        <div class="floating-elements" aria-hidden="true">
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+            <div class="floating-element"></div>
+        </div>
+        
+        <div class="error-container">
+            <div class="error-number" aria-label="Помилка 404" role="img">404</div>
+            
+            <h1 class="error-title">Сторінку не знайдено</h1>
+            
+            <p class="error-description">
+                Упс! Схоже, ця сторінка вирушила у подорож по нейромережах і загубилася. 
+                Але не хвилюйтесь — ми допоможемо вам знайти правильний шлях!
+            </p>
+            
+            <div class="error-actions">
+                <a href="/" class="btn-error-primary" aria-label="Повернутися на головну сторінку">
+                    <svg class="error-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+                    <span>На головну</span>
+                </a>
+                
+                <button onclick="history.back()" class="btn-error-secondary" aria-label="Повернутися назад">
+                    <svg class="error-icon" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Назад</span>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/js/error.js"></script>
+{% endblock %}

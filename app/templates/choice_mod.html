@@ -2,155 +2,197 @@
 
 {% block style_link %}<link rel="stylesheet" href="/static/css/choice_mod.css">{% endblock style_link %}
 
-{% block title %}Оберіть режим - Prompty AI{% endblock %}
+{% block title %}Оберіть режим навчання - Prompty AI{% endblock %}
 
-{% block description %}Оберіть режим роботи з промптами: навчання, творчість або кодування. Персоналізований досвід для кожної сфери застосування.{% endblock %}
+{% block description %}Виберіть спеціалізований режим для роботи з AI: навчання, творчість або програмування. Кожен режим оптимізований для ваших потреб.{% endblock %}
 
 {% block content %}
-    <!-- Hero Section -->
-    <section class="choice-hero">
+    <!-- Main Header -->
+    <section class="choice-header">
         <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    Оберіть свій 
-                    <span class="gradient-text">режим роботи</span>
+            <div class="header-content">
+                <h1 class="header-title">
+                    Виберіть <span class="gradient-text">спеціалізацію</span>
                 </h1>
-                <p class="hero-description">
-                    Кожен режим налаштований для специфічних потреб та завдань. 
-                    Виберіть той, що найкраще відповідає вашим цілям.
+                <p class="header-subtitle">
+                    Кожен режим містить унікальні інструменти та шаблони для максимальної ефективності
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Modes Selection -->
-    <section class="modes-section">
+    <!-- Mode Selection Cards -->
+    <section class="mode-selection">
         <div class="container">
-            <div class="modes-grid">
+            <div class="selection-grid">
                 <!-- Learning Mode -->
-                <article class="mode-card learning" tabindex="0">
-                    <div class="mode-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
-                        </svg>
-                    </div>
-                    <div class="mode-content">
-                        <h3>Навчання</h3>
-                        <p class="mode-description">
-                            Освітні завдання, навчальні матеріали та академічні дослідження. 
-                            Ідеально для студентів та викладачів.
-                        </p>
-                        <ul class="mode-features">
-                            <li>Пояснення складних концепцій</li>
-                            <li>Створення навчальних планів</li>
-                            <li>Генерація тестів та завдань</li>
-                            <li>Дослідження та аналіз</li>
-                        </ul>
-                        <button class="mode-btn learning-btn" data-mode="learning">
-                            <span>Обрати навчання</span>
-                            <svg viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <div class="mode-option" data-mode="learning">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3z"/>
+                                <path d="M5 13.18v4L12 21l7-3.82v-4"/>
+                                <path d="M12 12L1 9l11-6 11 6-11 6z"/>
                             </svg>
-                        </button>
+                        </div>
+                        <h3 class="option-title">Навчання</h3>
+                        <span class="popularity-badge">Популярний</span>
                     </div>
-                    <div class="mode-badge">Популярний</div>
-                </article>
+                    
+                    <div class="option-content">
+                        <p class="option-description">
+                            Академічні дослідження, навчальні матеріали та освітні проекти
+                        </p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">📚</span>
+                                <span>Навчальні плани</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🎯</span>
+                                <span>Тести та завдання</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔍</span>
+                                <span>Дослідження</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">💡</span>
+                                <span>Пояснення концепцій</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-footer">
+                        <a href="/menu/directly/1" class="select-btn primary-btn">
+                            Обрати навчання
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Creative Mode -->
-                <article class="mode-card creative" tabindex="0">
-                    <div class="mode-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2l.09 2.09L14.18 4l2.09.09L16.36 6.27l1.64 1.64L17.91 10l.09 2.09L16 12.09 13.91 12l-.09 2.09L11.64 13.73 10 15.36 8.27 13.73 6.09 12l-.09-2.09L4 9.82l2.09-.09L6.18 7.64 7.82 6l2.09-.09L10 4l2-.09L12 2z"/>
-                        </svg>
-                    </div>
-                    <div class="mode-content">
-                        <h3>Творчість</h3>
-                        <p class="mode-description">
-                            Креативні проекти, художні ідеї та контент-маркетинг. 
-                            Для письменників, дизайнерів та креаторів.
-                        </p>
-                        <ul class="mode-features">
-                            <li>Генерація ідей та концепцій</li>
-                            <li>Написання текстів та сценаріїв</li>
-                            <li>Створення візуального контенту</li>
-                            <li>Брендинг та маркетинг</li>
-                        </ul>
-                        <button class="mode-btn creative-btn" data-mode="creative">
-                            <span>Обрати творчість</span>
-                            <svg viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <div class="mode-option" data-mode="creative">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
                             </svg>
-                        </button>
+                        </div>
+                        <h3 class="option-title">Творчість</h3>
                     </div>
-                </article>
+                    
+                    <div class="option-content">
+                        <p class="option-description">
+                            Креативні проекти, контент-маркетинг та художні ідеї
+                        </p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">🎨</span>
+                                <span>Ідеї та концепції</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✍️</span>
+                                <span>Тексти та сценарії</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🎬</span>
+                                <span>Візуальний контент</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🚀</span>
+                                <span>Брендинг</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-footer">
+                        <a href="/menu/directly/2" class="select-btn secondary-btn">
+                            Обрати творчість
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
                 <!-- Coding Mode -->
-                <article class="mode-card coding" tabindex="0">
-                    <div class="mode-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-                        </svg>
-                    </div>
-                    <div class="mode-content">
-                        <h3>Кодування</h3>
-                        <p class="mode-description">
-                            Програмування, розробка ПЗ та технічні завдання. 
-                            Для розробників та IT-спеціалістів.
-                        </p>
-                        <ul class="mode-features">
-                            <li>Генерація та рефакторинг коду</li>
-                            <li>Налагодження та оптимізація</li>
-                            <li>Документація та коментарі</li>
-                            <li>Архітектурні рішення</li>
-                        </ul>
-                        <button class="mode-btn coding-btn" data-mode="coding">
-                            <span>Обрати кодування</span>
-                            <svg viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                <div class="mode-option" data-mode="coding">
+                    <div class="option-header">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="16,18 22,12 16,6"/>
+                                <polyline points="8,6 2,12 8,18"/>
                             </svg>
-                        </button>
+                        </div>
+                        <h3 class="option-title">Програмування</h3>
+                        <span class="pro-badge">Pro</span>
                     </div>
-                    <div class="mode-badge pro">Pro</div>
-                </article>
+                    
+                    <div class="option-content">
+                        <p class="option-description">
+                            Розробка програмного забезпечення та технічні рішення
+                        </p>
+                        
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">⚡</span>
+                                <span>Генерація коду</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🔧</span>
+                                <span>Рефакторинг</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">🐛</span>
+                                <span>Налагодження</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">📖</span>
+                                <span>Документація</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="option-footer">
+                        <a href="/menu/directly/3" class="select-btn success-btn">
+                            Обрати програмування
+                            <svg viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Comparison -->
-    <section class="comparison-section">
+    <!-- Quick Info Section -->
+    <section class="quick-info">
         <div class="container">
-            <header class="section-header">
-                <h2>Порівняння можливостей</h2>
-                <p>Детальний огляд того, що пропонує кожен режим</p>
-            </header>
-            
-            <div class="comparison-table">
-                <div class="table-header">
-                    <div class="feature-col">Можливості</div>
-                    <div class="mode-col learning">Навчання</div>
-                    <div class="mode-col creative">Творчість</div>
-                    <div class="mode-col coding">Кодування</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="feature-name">Готові шаблони</div>
-                    <div class="feature-check">✓</div>
-                    <div class="feature-check">✓</div>
-                    <div class="feature-check">✓</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="feature-name">AI-асистент</div>
-                    <div class="feature-check">✓</div>
-                    <div class="feature-check">✓</div>
-                    <div class="feature-check">✓</div>
-                </div>
-                
-                <div class="table-row">
-                    <div class="feature-name">Спеціалізовані інструменти</div>
-                    <div class="feature-check basic">Базові</div>
-                    <div class="feature-check advanced">Розширені</div>
-                    <div class="feature-check pro">Професійні</div>
+            <div class="info-content">
+                <h2 class="info-title">Чому варто обрати спеціалізований режим?</h2>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <h4>Точність</h4>
+                        <p>Кожен режим налаштований для конкретних завдань</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⚡</div>
+                        <h4>Швидкість</h4>
+                        <p>Готові шаблони та оптимізовані промпти</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🚀</div>
+                        <h4>Ефективність</h4>
+                        <p>Інструменти спеціально для вашої сфери</p>
+                    </div>
                 </div>
             </div>
         </div>

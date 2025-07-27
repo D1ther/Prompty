@@ -1,10 +1,11 @@
 from fastapi import FastAPI
 
-from app.endpoints.users import user_router
+from app.endpoints.users import user_endpoint
+from app.endpoints.directlies import directly_router
 
 endpoints_list = [
-    user_router,
-
+    user_endpoint,
+    directly_router
 ]
 
 def including_endpoints(app: FastAPI):

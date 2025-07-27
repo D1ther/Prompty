@@ -29,7 +29,7 @@ def get_user_by_email(email: str) -> dict | None:
         if not user:
             return None
         
-        return user.to_dict
+        return user.to_dict()
     
 
 def verefy_user(email: str, password: str) -> dict | None:

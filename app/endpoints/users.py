@@ -17,10 +17,10 @@ from app.validators import (
     LogginUserModel
 )
 
-user_router = APIRouter(prefix="/users", tags=["users"])
+user_endpoint = APIRouter(prefix="/users", tags=["users", "EndPoints"])
 
 # Реєстрація нового юзера
-@user_router.post("/register_user")
+@user_endpoint.post("/register_user")
 async def register_new_user(user: RegiterUserModel, request: Request):
 
     try:
@@ -52,7 +52,7 @@ async def register_new_user(user: RegiterUserModel, request: Request):
         )
     
 # Вхід в акаунт
-@user_router.post("/login")
+@user_endpoint.post("/login")
 async def login_user(user: LogginUserModel, request: Request):
     try:
         verefication = verefy_user(
@@ -80,3 +80,7 @@ async def login_user(user: LogginUserModel, request: Request):
             status_code=500,
             detail=str(e)
         )
+    
+@user_endpoint.get("/get_user/{email}")
+async def get_user(email: str):
+    return get_user_by_email(email)
