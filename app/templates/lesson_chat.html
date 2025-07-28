@@ -1,0 +1,113 @@
+{% extends "index.html" %}
+
+{% block style_link %}<link rel="stylesheet" href="/static/css/lesson_chat.css">{% endblock style_link %}
+
+{% block title %}Prompty - Чат з AI моделлю{% endblock %}
+
+{% block description %}Практикуйте навички створення промптів у реальному часі з AI асистентом{% endblock %}
+
+{% block content %}
+    <div class="chat-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-left">
+                <a href="/menu/choise-learning-program" class="back-btn" aria-label="Повернутися до меню">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                    </svg>
+                </a>
+                <div class="lesson-info">
+                    <h1>{{ lesson.title if lesson else 'Урок: Основи створення промптів' }}</h1>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 35%"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="hint-btn" id="hintBtn" aria-label="Отримати підказку">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="chat-main">
+            <!-- Chat Panel -->
+            <div class="chat-panel">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message system-message">
+                        <div class="message-avatar">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <div class="message-content">
+                            <p>Вітаю! Я ваш AI асистент. {{ lesson.description if lesson else 'Створіть промпт і отримайте результат.' }}</p>
+                            <div class="message-time">14:30</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="input-wrapper">
+                        <textarea 
+                            id="chatInput" 
+                            placeholder="Напишіть ваш промпт тут..."
+                            rows="3"
+                            maxlength="1000"
+                        ></textarea>
+                        <div class="input-actions">
+                            <div class="input-stats">
+                                <span id="charCount">0/1000</span>
+                            </div>
+                            <button id="sendBtn" class="send-btn" aria-label="Відправити повідомлення">
+                                <svg viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Panel -->
+            <div class="result-panel">
+                <div class="result-header">
+                    <h2>Результат виконання</h2>
+                </div>
+
+                <div class="result-content" id="resultContent">
+                    <div class="result-placeholder">
+                        <div class="placeholder-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                            </svg>
+                        </div>
+                        <p>Надішліть промпт, щоб побачити результат</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal для підказок -->
+    <div class="modal-overlay" id="hintModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Підказка</h3>
+                <button class="modal-close" id="closeHintModal" aria-label="Закрити підказку">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-content">
+                <p>Спробуйте додати більше деталей до вашого промпту: опишіть стиль, настрій, кольори та композицію зображення.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/lesson_chat.js"></script>
+{% endblock %}

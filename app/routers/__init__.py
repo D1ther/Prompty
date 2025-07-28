@@ -6,6 +6,7 @@ from app.routers.rules import rules_router
 from app.routers.menu import menu_router
 from app.routers.error import error_router
 from app.routers.users import user_router
+from app.routers.lesson import lesson_router
 
 routers = [
     default_router,
@@ -13,7 +14,8 @@ routers = [
     rules_router,
     menu_router,
     error_router,
-    user_router
+    user_router,
+    lesson_router
 ]
 
 def including_routers(app: FastAPI):

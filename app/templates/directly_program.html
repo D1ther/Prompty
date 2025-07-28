@@ -42,7 +42,7 @@
             </div>
         </header>
 
-        <!-- Program Info Section (додана нова секція) -->
+        <!-- Program Info Section -->
         {% if program_info and program_info.description %}
         <section class="program-info-section">
             <div class="container">
@@ -66,7 +66,7 @@
             <div class="container">
                 <div class="lessons-grid" id="lessons-grid">
                     {% for lesson in program %}
-                    <article class="lesson-card" data-lesson-id="{{ loop.index0 }}">
+                    <article class="lesson-card" data-lesson-id="{{ lesson.id }}" data-lesson-index="{{ loop.index0 }}">
                         <div class="lesson-status">
                             <div class="status-icon" id="status-{{ loop.index0 }}">
                                 <svg class="icon-lock" viewBox="0 0 24 24" fill="currentColor">
@@ -127,7 +127,10 @@
                         </div>
                         
                         <div class="lesson-actions">
-                            <button class="btn-lesson" data-lesson-id="{{ loop.index0 }}" disabled>
+                            <button class="btn-lesson" 
+                                    data-lesson-id="{{ lesson.id }}" 
+                                    data-lesson-index="{{ loop.index0 }}" 
+                                    disabled>
                                 <span class="btn-text">Заблоковано</span>
                                 <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"/>
@@ -142,29 +145,6 @@
                         </div>
                     </article>
                     {% endfor %}
-                </div>
-                
-                <!-- Lesson Modal -->
-                <div class="lesson-modal" id="lesson-modal">
-                    <div class="modal-backdrop" id="modal-backdrop"></div>
-                    <div class="modal-content">
-                        <header class="modal-header">
-                            <h2 class="modal-title" id="modal-title">Урок</h2>
-                            <button class="modal-close" id="modal-close">
-                                <svg viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/>
-                                </svg>
-                            </button>
-                        </header>
-                        <div class="modal-body" id="modal-body">
-                            <!-- Lesson content will be loaded here -->
-                        </div>
-                        <footer class="modal-footer">
-                            <button class="btn-secondary" id="btn-previous" disabled>Попередній</button>
-                            <button class="btn-primary" id="btn-complete">Завершити урок</button>
-                            <button class="btn-primary" id="btn-next" disabled>Наступний</button>
-                        </footer>
-                    </div>
                 </div>
             </div>
         </section>

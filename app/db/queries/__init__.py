@@ -9,5 +9,6 @@ from app.db.queries.directlies import (
 )
 
 from app.db.queries.lessons import (
-    get_all_lessons
+    get_all_lessons,
+    get_lesson_by_id
 )
