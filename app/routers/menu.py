@@ -10,7 +10,8 @@ from fastapi.responses import (
 )
 
 from app.db.queries import (
-    get_directly_by_id
+    get_directly_by_id,
+    get_completed_lessons
 )
 
 from app.routers.routers_config import templates
@@ -49,6 +50,7 @@ async def menu_directly_program(request: Request, program_id: int, user = Depend
         )
     
     directly = get_directly_by_id(program_id)
+    completed_lessons = get_completed_lessons(user["email"])
 
     if not directly:
         return RedirectResponse(
@@ -60,6 +62,7 @@ async def menu_directly_program(request: Request, program_id: int, user = Depend
         {
             "request": request,
             "user": user,
+            "completed_lessons": completed_lessons,
             "program_info": directly,
             "program": directly["lessons"]
         }

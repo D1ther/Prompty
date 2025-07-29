@@ -26,7 +26,13 @@ class Directly(Base):
             "id": self.id,
             "title": self.title,
             "description": self.description,
-            "lessons": [lesson.to_dict() for lesson in self.lessons],
+            "lessons": [{
+                "id": lesson.id,
+                "title": lesson.title,
+                "description": lesson.description,
+                "directly_id": lesson.directly_id
+            } for lesson in self.lessons],
+
             "lessons_count": len(self.lessons)
         }
     

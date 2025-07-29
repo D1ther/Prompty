@@ -3,6 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from starlette.middleware.sessions import SessionMiddleware
 from app.routers import including_routers
 from app.endpoints import including_endpoints
+from app.sockets import init_sockets
 
 import uvicorn
 
@@ -21,6 +22,7 @@ app.mount("/static", StaticFiles(directory="app/static"), name="static")
 def main():
     including_endpoints(app)
     including_routers(app)
+    init_sockets(app)
     uvicorn.run(
         app=app,
         port=8000,

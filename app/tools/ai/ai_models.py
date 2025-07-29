@@ -9,18 +9,20 @@ class AiEvaluationModel:
             self,
             client=client,
             theme: str = None,
-            model: str = "google/gemini-2.0-flash-exp:free",
+            lesson_description: str = None,
+            model: str = "google/gemini-2.0-flash-exp:free", #Рекомендується - google/gemini-2.0-flash-exp:free
             last_prompts: list = []
     ):
         self.client = client
         self.model = model
         self.theme = theme
+        self.lesson_description = lesson_description
         self.last_prompts = last_prompts
 
         self.system_content = (
             f"Ви — експерт з оцінювання промптів для штучного інтелекту. "
             f"Відповідайте українською мовою.\n\n"
-            f"Ваше завдання — детально оцінити промпт користувача за темою '{self.theme}' та надати структуровану відповідь у форматі JSON.\n\n"
+            f"Ваше завдання — детально оцінити промпт користувача за темою '{self.theme}' та за темою уроку {self.lesson_description} надати структуровану відповідь у форматі JSON.\n\n"
             f"Структура JSON відповіді:\n"
             f"{{\n"
             f'  "score": [число від 0 до 10],\n'
@@ -77,3 +79,66 @@ class AiEvaluationModel:
             temperature=0.2
         )
         return json.loads(response.choices[0].message.content.replace("```json", "").replace("```", "").strip())
+    
+class AiGenerateResultModel:
+    def __init__(
+            self,
+            client=client,
+            theme: str = None,
+            model: str = "qwen/qwen3-coder:free", #Рекомендується - qwen/qwen3-coder:free
+            last_prompts: list = []
+    ):
+        
+        self.client = client
+        self.model = model
+        self.theme = theme
+        self.last_prompts = last_prompts
+
+        self.system_content = (
+            f"Ви — експертний AI-генератор контенту, що спеціалізується на темі '{self.theme}'. "
+            f"Відповідайте українською мовою.\n\n"
+            f"Ваше завдання — створити ТОЧНИЙ та ЯКІСНИЙ контент згідно з промптом користувача.\n\n"
+            f"ПРАВИЛА ГЕНЕРАЦІЇ:\n"
+            f"1. Створюйте контент ТОЧНО за вимогами промпту\n"
+            f"2. Використовуйте ВСІ деталі, згадані в промпті\n"
+            f"3. Дотримуйтесь стилю та настрою, вказаного в промпті\n"
+            f"4. Якщо промпт про зображення - створіть детальний опис зображення\n"
+            f"5. Якщо промпт про текст - створіть відповідний текст\n"
+            f"6. Якщо промпт про код - напишіть робочий код з коментарями\n"
+            f"7. Якщо промпт про історію - напишіть повну історію\n"
+            f"8. Враховуйте тему '{self.theme}' у всіх аспектах генерації\n\n"
+            f"ФОРМАТ ВІДПОВІДІ JSON:\n"
+            f"{{\n"
+            f'  "result": "[згенерований контент]"\n'
+            f"}}\n\n"
+            f"ВАЖЛИВО: \n"
+            f"- Створюйте ОРИГІНАЛЬНИЙ та ПОВНИЙ контент\n"
+            f"- НЕ створюйте описи або пояснення, а саме контент\n"
+            f"- Будьте максимально точними до промпту\n"
+            f"- Враховуйте ВСІ деталі з промпту\n"
+            f"- Відповідайте ТІЛЬКИ валідним JSON з одним ключем 'result'"
+        )
+
+    async def generate_result(self, prompt: str):
+        user_content = user_content = (
+            f"ПРОМПТ ДЛЯ ГЕНЕРАЦІЇ: \"{prompt}\"\n"
+            f"ТЕМА УРОКУ: {self.theme}\n\n"
+            f"СТВОРІТЬ контент ТОЧНО за цим промптом.\n"
+            f"Поверніть результат у форматі JSON з єдиним ключем 'result'.\n"
+            f"У значенні 'result' має бути сам згенерований контент, а не опис!"
+        )
+
+        respnse = self.client.chat.completions.create(
+            model=self.model,
+            messages=[
+                {"role": "system", "content": self.system_content},
+                {"role": "user", "content": user_content},
+            ],
+            temperature=0.2
+        )
+
+        return json.loads(respnse.choices[0].message.content.replace("```json", "").replace("```", "").strip())
+
+
+        
+    

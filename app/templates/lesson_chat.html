@@ -37,17 +37,7 @@
             <!-- Chat Panel -->
             <div class="chat-panel">
                 <div class="chat-messages" id="chatMessages">
-                    <div class="message system-message">
-                        <div class="message-avatar">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                            </svg>
-                        </div>
-                        <div class="message-content">
-                            <p>Вітаю! Я ваш AI асистент. {{ lesson.description if lesson else 'Створіть промпт і отримайте результат.' }}</p>
-                            <div class="message-time">14:30</div>
-                        </div>
-                    </div>
+                    <!-- Початкові повідомлення будуть додані через JavaScript -->
                 </div>
 
                 <div class="chat-input-container">
@@ -74,19 +64,28 @@
 
             <!-- Result Panel -->
             <div class="result-panel">
-                <div class="result-header">
-                    <h2>Результат виконання</h2>
+                <div class="result-panel-header">
+                    <div class="result-panel-title">
+                        <h2>Результат виконання</h2>
+                        <div class="result-status">
+                            <span class="status-indicator"></span>
+                            <span class="status-text">Очікування промпту</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="result-content" id="resultContent">
-                    <div class="result-placeholder">
-                        <div class="placeholder-icon">
-                            <svg viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
-                            </svg>
-                        </div>
-                        <p>Надішліть промпт, щоб побачити результат</p>
-                    </div>
+                    <!-- Результат буде показаний тут -->
+                </div>
+
+                <!-- Complete Lesson Button in Result Panel -->
+                <div class="result-panel-footer">
+                    <a class="complete-lesson-btn" href="/lesson/complete/{{ lesson.id if lesson else '1' }}" aria-label="Завершити урок">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        <span>Завершити урок</span>
+                    </a>
                 </div>
             </div>
         </div>

@@ -8,6 +8,10 @@ from fastapi.responses import (
     HTMLResponse
 )
 
+from app.db.queries import (
+    get_all_users_ranking
+)
+
 from app.routers.routers_config import templates
 from app.login_config import require_authentication
 
@@ -79,4 +83,28 @@ async def error_route(request: Request):
             "user": user
         }
     )
+
+# рейтинг
+@default_router.get("/ranking", response_class=HTMLResponse)
+async def ranking_response(request: Request, user=Depends(require_authentication)):
+    if not user:
+        return templates.TemplateResponse(
+            "ranking.html",
+            {
+                "request": request,
+                "user": None
+            }
+        )
+    
+    users = get_all_users_ranking()
+    
+    return templates.TemplateResponse(
+        "ranking.html",
+        {
+            "request": request,
+            "user": user,
+            "ranking":users
+        }
+    )
+
 
